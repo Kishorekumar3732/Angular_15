@@ -9,8 +9,19 @@ export class FooterComponent {
 
   currentYear: number = new Date().getFullYear();
 
+  email: string = '';
+
   subscribe(): void {
-    console.log('Newsletter subscription clicked');
+
+    const email = this.email.trim();
+
+    if (!email) {
+      return;
+    }
+
+    console.log('Newsletter subscription:', email);
+
+    this.email = '';
   }
 
 }
