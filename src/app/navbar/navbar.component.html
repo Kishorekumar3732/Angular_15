@@ -1,0 +1,415 @@
+<header class="site-header">
+
+  <!-- Top Announcement Bar -->
+
+  <div class="announcement-bar">
+    <div class="announcement-content">
+
+      <span>
+        ✨ New season is here
+      </span>
+
+      <span class="announcement-divider">•</span>
+
+      <span>
+        Free shipping on orders over ₹999
+      </span>
+
+      <a routerLink="/products">
+        Shop now →
+      </a>
+
+    </div>
+  </div>
+
+
+  <!-- Main Navbar -->
+
+  <nav class="navbar">
+
+    <div class="navbar-container">
+
+
+      <!-- Logo -->
+
+      <a
+        routerLink="/"
+        class="brand"
+        (click)="closeMenus()">
+
+        <span class="brand-icon">
+          S
+        </span>
+
+        <span class="brand-text">
+          Shop<span>Ease</span>
+        </span>
+
+      </a>
+
+
+      <!-- Desktop Navigation -->
+
+      <div class="desktop-navigation">
+
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          Home
+        </a>
+
+
+        <!-- Categories -->
+
+        <div class="nav-dropdown">
+
+          <button
+            class="nav-dropdown-button"
+            (click)="toggleCategories()">
+
+            Categories
+
+            <span
+              class="dropdown-arrow"
+              [class.rotate]="isCategoryOpen">
+              ↓
+            </span>
+
+          </button>
+
+
+          <div
+            class="dropdown-menu category-menu"
+            *ngIf="isCategoryOpen">
+
+            <div class="dropdown-heading">
+              <span>SHOP BY CATEGORY</span>
+            </div>
+
+            <a
+              *ngFor="let category of categories"
+              routerLink="/products"
+              (click)="selectCategory(category)">
+
+              <span class="category-dot"></span>
+
+              {{ category }}
+
+              <span class="menu-arrow">
+                →
+              </span>
+
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <a
+          routerLink="/products"
+          routerLinkActive="active">
+          Products
+        </a>
+
+        <a
+          routerLink="/"
+          fragment="offers">
+          Offers
+        </a>
+
+      </div>
+
+
+      <!-- Search -->
+
+      <div class="search-box">
+
+        <span class="search-icon">
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <circle
+              cx="11"
+              cy="11"
+              r="7">
+            </circle>
+
+            <path
+              d="M16 16L21 21">
+            </path>
+
+          </svg>
+        </span>
+
+
+        <input
+          type="text"
+          [(ngModel)]="searchText"
+          (keyup.enter)="searchProducts()"
+          placeholder="Search products, brands & more..."
+          aria-label="Search products">
+
+
+        <button
+          class="search-button"
+          (click)="searchProducts()">
+
+          Search
+
+        </button>
+
+      </div>
+
+
+      <!-- Actions -->
+
+      <div class="navbar-actions">
+
+
+        <!-- Wishlist -->
+
+        <a
+          routerLink="/wishlist"
+          class="action-button"
+          aria-label="Wishlist">
+
+          <svg
+            viewBox="0 0 24 24">
+
+            <path
+              d="M20.8 8.8
+                 C20.8 13.5 12 19 12 19
+                 S3.2 13.5 3.2 8.8
+                 C3.2 5.8 5.2 4 7.7 4
+                 C9.5 4 11 5 12 6.5
+                 C13 5 14.5 4 16.3 4
+                 C18.8 4 20.8 5.8 20.8 8.8Z">
+            </path>
+
+          </svg>
+
+          <span
+            class="notification-badge"
+            *ngIf="wishlistCount > 0">
+
+            {{ wishlistCount }}
+
+          </span>
+
+        </a>
+
+
+        <!-- Cart -->
+
+        <a
+          routerLink="/cart"
+          class="action-button"
+          aria-label="Shopping cart">
+
+          <svg
+            viewBox="0 0 24 24">
+
+            <path
+              d="M3 4h2l2.4 11.2
+                 a2 2 0 0 0 2 1.6h7.8
+                 a2 2 0 0 0 1.9-1.4L21 8H6">
+            </path>
+
+            <circle
+              cx="10"
+              cy="20"
+              r="1">
+            </circle>
+
+            <circle
+              cx="18"
+              cy="20"
+              r="1">
+            </circle>
+
+          </svg>
+
+          <span
+            class="notification-badge"
+            *ngIf="cartCount > 0">
+
+            {{ cartCount }}
+
+          </span>
+
+        </a>
+
+
+        <!-- Account -->
+
+        <div class="account-container">
+
+          <button
+            class="account-button"
+            (click)="toggleAccount()">
+
+            <span class="account-avatar">
+              K
+            </span>
+
+            <span class="account-text">
+              <small>Hello,</small>
+              Account
+            </span>
+
+            <span
+              class="account-arrow"
+              [class.rotate]="isAccountOpen">
+              ↓
+            </span>
+
+          </button>
+
+
+          <!-- Account Dropdown -->
+
+          <div
+            class="dropdown-menu account-menu"
+            *ngIf="isAccountOpen">
+
+            <div class="account-header">
+
+              <div class="account-avatar large">
+                K
+              </div>
+
+              <div>
+                <strong>Hello, Kishore</strong>
+                <small>Welcome back!</small>
+              </div>
+
+            </div>
+
+
+            <div class="menu-divider"></div>
+
+
+            <a routerLink="/profile">
+              <span>👤</span>
+              My Profile
+            </a>
+
+            <a routerLink="/orders">
+              <span>📦</span>
+              My Orders
+            </a>
+
+            <a routerLink="/wishlist">
+              <span>❤️</span>
+              Wishlist
+            </a>
+
+            <a routerLink="/cart">
+              <span>🛒</span>
+              My Cart
+            </a>
+
+
+            <div class="menu-divider"></div>
+
+
+            <a href="#">
+              <span>⚙️</span>
+              Settings
+            </a>
+
+            <a href="#" class="logout-link">
+              <span>↪</span>
+              Logout
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Mobile Menu Button -->
+
+      <button
+        class="mobile-menu-button"
+        (click)="toggleMobileMenu()"
+        aria-label="Open menu">
+
+        <span
+          [class.open]="isMobileMenuOpen">
+        </span>
+
+        <span
+          [class.open]="isMobileMenuOpen">
+        </span>
+
+        <span
+          [class.open]="isMobileMenuOpen">
+        </span>
+
+      </button>
+
+    </div>
+
+
+    <!-- Mobile Navigation -->
+
+    <div
+      class="mobile-navigation"
+      [class.open]="isMobileMenuOpen">
+
+      <div class="mobile-search">
+
+        <span>⌕</span>
+
+        <input
+          type="text"
+          [(ngModel)]="searchText"
+          (keyup.enter)="searchProducts()"
+          placeholder="Search products...">
+
+      </div>
+
+
+      <a
+        routerLink="/"
+        (click)="closeMenus()">
+        Home
+      </a>
+
+      <a
+        routerLink="/products"
+        (click)="closeMenus()">
+        Products
+      </a>
+
+      <a
+        routerLink="/wishlist"
+        (click)="closeMenus()">
+        ❤️ Wishlist
+        <span>{{ wishlistCount }}</span>
+      </a>
+
+      <a
+        routerLink="/cart"
+        (click)="closeMenus()">
+        🛒 Cart
+        <span>{{ cartCount }}</span>
+      </a>
+
+      <a
+        routerLink="/profile"
+        (click)="closeMenus()">
+        👤 My Account
+      </a>
+
+    </div>
+
+  </nav>
+
+</header>

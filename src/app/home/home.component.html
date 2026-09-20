@@ -1,0 +1,425 @@
+<!-- =========================
+     HERO SECTION
+========================= -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <span class="hero-badge">
+      ✨ New Collection 2026
+    </span>
+
+    <h1>
+      Shop Smart.
+      <span>Live Better.</span>
+    </h1>
+
+    <p>
+      Discover amazing products at unbeatable prices.
+      Everything you love, delivered right to your doorstep.
+    </p>
+
+    <div class="hero-buttons">
+
+      <button
+        class="primary-btn"
+        (click)="shopNow()">
+        Shop Now
+        <span>→</span>
+      </button>
+
+      <button
+        class="secondary-btn"
+        (click)="exploreCategories()">
+        Explore Categories
+      </button>
+
+    </div>
+
+    <div class="hero-stats">
+
+      <div class="stat">
+        <strong>10K+</strong>
+        <span>Products</span>
+      </div>
+
+      <div class="stat">
+        <strong>50K+</strong>
+        <span>Customers</span>
+      </div>
+
+      <div class="stat">
+        <strong>4.8 ⭐</strong>
+        <span>Rating</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="hero-image">
+
+    <div class="floating-card card-one">
+      🚚
+      <div>
+        <strong>Free Delivery</strong>
+        <small>On orders above ₹999</small>
+      </div>
+    </div>
+
+    <div class="floating-card card-two">
+      🔥
+      <div>
+        <strong>Hot Deals</strong>
+        <small>Up to 50% OFF</small>
+      </div>
+    </div>
+
+    <div class="product-circle">
+      🛍️
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CATEGORIES
+========================= -->
+
+<section class="section categories-section">
+
+  <div class="section-heading">
+
+    <div>
+      <span class="section-label">EXPLORE</span>
+
+      <h2>Shop by Category</h2>
+
+      <p>
+        Find everything you need in one place.
+      </p>
+    </div>
+
+    <a
+      routerLink="/products"
+      class="view-all">
+      View All →
+    </a>
+
+  </div>
+
+
+  <div class="categories-grid">
+
+    <div
+      class="category-card"
+      *ngFor="let category of categories">
+
+      <div class="category-icon">
+        {{ category.icon }}
+      </div>
+
+      <h3>
+        {{ category.name }}
+      </h3>
+
+      <p>
+        {{ category.description }}
+      </p>
+
+      <span class="category-arrow">
+        →
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURED PRODUCTS
+========================= -->
+
+<section class="section products-section">
+
+  <div class="section-heading">
+
+    <div>
+      <span class="section-label">OUR PICKS</span>
+
+      <h2>Featured Products</h2>
+
+      <p>
+        Hand-picked products just for you.
+      </p>
+    </div>
+
+    <a
+      routerLink="/products"
+      class="view-all">
+      View All →
+    </a>
+
+  </div>
+
+
+  <div class="products-grid">
+
+    <div
+      class="product-card"
+      *ngFor="let product of featuredProducts">
+
+      <!-- Product Image -->
+
+      <div class="product-image">
+
+        <span
+          class="product-badge"
+          *ngIf="product.badge">
+          {{ product.badge }}
+        </span>
+
+        <button class="wishlist-btn">
+          ♡
+        </button>
+
+        <img
+          [src]="product.image"
+          [alt]="product.name">
+
+        <div class="quick-view">
+          Quick View
+        </div>
+
+      </div>
+
+
+      <!-- Product Information -->
+
+      <div class="product-info">
+
+        <span class="product-category">
+          {{ product.category }}
+        </span>
+
+        <h3>
+          {{ product.name }}
+        </h3>
+
+        <div class="rating">
+
+          <span class="stars">
+            ⭐ {{ product.rating }}
+          </span>
+
+          <span class="reviews">
+            ({{ product.reviews }})
+          </span>
+
+        </div>
+
+
+        <div class="price-row">
+
+          <div class="prices">
+
+            <span class="price">
+              ₹{{ product.price }}
+            </span>
+
+            <span class="old-price">
+              ₹{{ product.oldPrice }}
+            </span>
+
+          </div>
+
+          <button
+            class="add-cart-btn"
+            (click)="addToCart(product)"
+            title="Add to cart">
+            🛒
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     OFFER BANNER
+========================= -->
+
+<section class="offer-section">
+
+  <div class="offer-content">
+
+    <span class="offer-label">
+      LIMITED TIME OFFER
+    </span>
+
+    <h2>
+      Get up to <span>50% OFF</span>
+    </h2>
+
+    <p>
+      Grab your favorite products before the offer ends.
+    </p>
+
+    <button
+      class="offer-button"
+      routerLink="/products">
+      Shop Deals →
+    </button>
+
+  </div>
+
+  <div class="offer-decoration">
+    🛍️
+  </div>
+
+</section>
+
+
+<!-- =========================
+     WHY CHOOSE US
+========================= -->
+
+<section class="section benefits-section">
+
+  <div class="section-heading centered">
+
+    <span class="section-label">
+      WHY SHOEASE
+    </span>
+
+    <h2>
+      Shopping Made Simple
+    </h2>
+
+    <p>
+      Everything you need for a smooth shopping experience.
+    </p>
+
+  </div>
+
+
+  <div class="benefits-grid">
+
+    <div class="benefit-card">
+
+      <div class="benefit-icon">
+        🚚
+      </div>
+
+      <h3>
+        Fast Delivery
+      </h3>
+
+      <p>
+        Get your orders delivered quickly and safely.
+      </p>
+
+    </div>
+
+
+    <div class="benefit-card">
+
+      <div class="benefit-icon">
+        🔒
+      </div>
+
+      <h3>
+        Secure Payment
+      </h3>
+
+      <p>
+        Your payments and personal information are protected.
+      </p>
+
+    </div>
+
+
+    <div class="benefit-card">
+
+      <div class="benefit-icon">
+        ↩️
+      </div>
+
+      <h3>
+        Easy Returns
+      </h3>
+
+      <p>
+        Simple and hassle-free returns when you need them.
+      </p>
+
+    </div>
+
+
+    <div class="benefit-card">
+
+      <div class="benefit-icon">
+        💬
+      </div>
+
+      <h3>
+        24/7 Support
+      </h3>
+
+      <p>
+        Our support team is always here to help you.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     NEWSLETTER
+========================= -->
+
+<section class="newsletter">
+
+  <div class="newsletter-content">
+
+    <span>STAY UPDATED</span>
+
+    <h2>
+      Get the latest deals
+      <br>
+      straight to your inbox.
+    </h2>
+
+    <p>
+      Subscribe and never miss an exciting offer.
+    </p>
+
+    <div class="newsletter-form">
+
+      <input
+        type="email"
+        placeholder="Enter your email">
+
+      <button>
+        Subscribe
+      </button>
+
+    </div>
+
+  </div>
+
+</section>

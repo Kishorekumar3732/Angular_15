@@ -1,0 +1,1039 @@
+/* ========================================
+   HEADER
+======================================== */
+
+:host {
+  display: block;
+  position: relative;
+  z-index: 1000;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+
+  box-shadow:
+    0 4px 25px rgba(15, 23, 42, 0.04);
+}
+
+
+/* ========================================
+   ANNOUNCEMENT BAR
+======================================== */
+
+.announcement-bar {
+  min-height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      90deg,
+      #312e81,
+      #4f46e5,
+      #7c3aed
+    );
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.2px;
+}
+
+.announcement-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  padding: 7px 20px;
+}
+
+.announcement-divider {
+  opacity: 0.5;
+}
+
+.announcement-content a {
+  color: #ddd6fe;
+
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease;
+}
+
+.announcement-content a:hover {
+  color: white;
+}
+
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+.navbar {
+  width: 100%;
+
+  background: transparent;
+}
+
+.navbar-container {
+  max-width: 1500px;
+
+  min-height: 78px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 28px;
+
+  margin: auto;
+
+  padding: 0 5%;
+}
+
+
+/* ========================================
+   BRAND
+======================================== */
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  gap: 9px;
+
+  color: #111827;
+
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #7c3aed
+    );
+
+  color: white;
+
+  font-size: 19px;
+  font-weight: 900;
+
+  box-shadow:
+    0 8px 20px rgba(79, 70, 229, 0.25);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.brand:hover .brand-icon {
+  transform:
+    rotate(-8deg)
+    scale(1.08);
+
+  box-shadow:
+    0 12px 25px rgba(79, 70, 229, 0.35);
+}
+
+.brand-text {
+  font-size: 21px;
+  font-weight: 800;
+
+  letter-spacing: -0.7px;
+}
+
+.brand-text span {
+  color: #6366f1;
+}
+
+
+/* ========================================
+   DESKTOP NAVIGATION
+======================================== */
+
+.desktop-navigation {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  flex-shrink: 0;
+}
+
+.desktop-navigation > a,
+.nav-dropdown-button {
+  position: relative;
+
+  padding: 9px 12px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #475569;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease;
+}
+
+.desktop-navigation > a::after,
+.nav-dropdown-button::after {
+  content: "";
+
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+  bottom: 2px;
+
+  height: 2px;
+
+  border-radius: 10px;
+
+  background: #4f46e5;
+
+  transform:
+    scaleX(0);
+
+  transform-origin: center;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.desktop-navigation > a:hover,
+.nav-dropdown-button:hover,
+.desktop-navigation > a.active {
+  color: #4f46e5;
+}
+
+.desktop-navigation > a:hover::after,
+.desktop-navigation > a.active::after {
+  transform: scaleX(1);
+}
+
+
+/* ========================================
+   CATEGORY DROPDOWN
+======================================== */
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-button {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+.dropdown-arrow,
+.account-arrow {
+  font-size: 11px;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.dropdown-arrow.rotate,
+.account-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+
+/* ========================================
+   SEARCH
+======================================== */
+
+.search-box {
+  position: relative;
+
+  flex: 1;
+
+  max-width: 440px;
+  min-width: 180px;
+
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+
+  margin-left: auto;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 13px;
+
+  background: #f8fafc;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.search-box:focus-within {
+  border-color: #818cf8;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.search-icon {
+  display: flex;
+
+  margin-left: 13px;
+
+  color: #94a3b8;
+}
+
+.search-icon svg {
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.8;
+}
+
+.search-box input {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 100%;
+
+  padding: 0 10px;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #1e293b;
+
+  font-family: inherit;
+
+  font-size: 12px;
+}
+
+.search-box input::placeholder {
+  color: #94a3b8;
+}
+
+.search-button {
+  height: 34px;
+
+  margin-right: 5px;
+
+  padding: 0 15px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #4f46e5;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.search-button:hover {
+  background: #4338ca;
+
+  transform: translateY(-1px);
+}
+
+
+/* ========================================
+   NAVBAR ACTIONS
+======================================== */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  flex-shrink: 0;
+}
+
+.action-button {
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  color: #475569;
+
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.action-button:hover {
+  background: #eef2ff;
+
+  color: #4f46e5;
+
+  transform: translateY(-2px);
+}
+
+.action-button svg {
+  width: 21px;
+  height: 21px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.7;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* ========================================
+   BADGE
+======================================== */
+
+.notification-badge {
+  position: absolute;
+
+  top: 3px;
+  right: 1px;
+
+  min-width: 17px;
+  height: 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 4px;
+
+  border: 2px solid white;
+
+  border-radius: 20px;
+
+  background: #ef4444;
+
+  color: white;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  animation:
+    badgePop 0.4s ease;
+}
+
+
+/* ========================================
+   ACCOUNT
+======================================== */
+
+.account-container {
+  position: relative;
+}
+
+.account-button {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 5px 8px 5px 5px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  transition:
+    background 0.25s ease;
+}
+
+.account-button:hover {
+  background: #f1f5f9;
+}
+
+.account-avatar {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ddd6fe,
+      #c7d2fe
+    );
+
+  color: #4338ca;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.account-avatar.large {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 12px;
+}
+
+.account-text {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  color: #1e293b;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.account-text small {
+  color: #94a3b8;
+
+  font-size: 9px;
+  font-weight: 500;
+}
+
+
+/* ========================================
+   DROPDOWN
+======================================== */
+
+.dropdown-menu {
+  position: absolute;
+
+  top: calc(100% + 12px);
+
+  right: 0;
+
+  min-width: 230px;
+
+  padding: 8px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 16px;
+
+  background: white;
+
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.13);
+
+  animation:
+    dropdownIn 0.22s ease forwards;
+
+  transform-origin: top right;
+}
+
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px 11px;
+
+  border-radius: 9px;
+
+  color: #475569;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background: #f1f5f9;
+
+  color: #4f46e5;
+
+  transform: translateX(3px);
+}
+
+.category-menu {
+  left: 0;
+  right: auto;
+
+  min-width: 250px;
+}
+
+.dropdown-heading {
+  padding: 9px 11px;
+
+  color: #94a3b8;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+.category-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #818cf8;
+}
+
+.menu-arrow {
+  margin-left: auto;
+
+  color: #94a3b8;
+
+  opacity: 0;
+
+  transform: translateX(-5px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.category-menu a:hover .menu-arrow {
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+.account-menu {
+  min-width: 250px;
+}
+
+.account-header {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 10px;
+}
+
+.account-header > div:last-child {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.account-header strong {
+  color: #1e293b;
+
+  font-size: 12px;
+}
+
+.account-header small {
+  color: #94a3b8;
+
+  font-size: 10px;
+}
+
+.menu-divider {
+  height: 1px;
+
+  margin: 6px 4px;
+
+  background: #e2e8f0;
+}
+
+.logout-link {
+  color: #ef4444 !important;
+}
+
+
+/* ========================================
+   MOBILE MENU BUTTON
+======================================== */
+
+.mobile-menu-button {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #f1f5f9;
+
+  cursor: pointer;
+}
+
+.mobile-menu-button span {
+  width: 19px;
+  height: 2px;
+
+  border-radius: 5px;
+
+  background: #334155;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.mobile-menu-button span.open:nth-child(1) {
+  transform:
+    translateY(7px)
+    rotate(45deg);
+}
+
+.mobile-menu-button span.open:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-button span.open:nth-child(3) {
+  transform:
+    translateY(-7px)
+    rotate(-45deg);
+}
+
+
+/* ========================================
+   MOBILE NAVIGATION
+======================================== */
+
+.mobile-navigation {
+  display: none;
+
+  padding: 0 5% 18px;
+
+  border-top: 1px solid #f1f5f9;
+
+  background: white;
+
+  animation:
+    mobileMenuIn 0.25s ease;
+}
+
+.mobile-search {
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin: 15px 0;
+
+  padding: 0 12px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 11px;
+
+  background: #f8fafc;
+
+  color: #94a3b8;
+}
+
+.mobile-search input {
+  width: 100%;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  font-family: inherit;
+}
+
+.mobile-navigation > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 13px 8px;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  color: #334155;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.mobile-navigation > a:hover {
+  padding-left: 14px;
+
+  color: #4f46e5;
+}
+
+.mobile-navigation > a span {
+  padding: 3px 7px;
+
+  border-radius: 20px;
+
+  background: #eef2ff;
+
+  color: #4f46e5;
+
+  font-size: 10px;
+}
+
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes dropdownIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-8px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+@keyframes mobileMenuIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+@keyframes badgePop {
+
+  0% {
+    transform: scale(0);
+  }
+
+  70% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1150px) {
+
+  .navbar-container {
+    gap: 15px;
+  }
+
+  .desktop-navigation {
+    display: none;
+  }
+
+  .search-box {
+    max-width: none;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+  }
+
+  .mobile-navigation.open {
+    display: block;
+  }
+
+  .account-text,
+  .account-arrow {
+    display: none;
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+  .announcement-content {
+    font-size: 9px;
+
+    gap: 6px;
+  }
+
+  .announcement-content span:nth-child(3) {
+    display: none;
+  }
+
+  .announcement-divider {
+    display: none;
+  }
+
+  .navbar-container {
+    min-height: 68px;
+
+    padding: 0 20px;
+
+    gap: 8px;
+  }
+
+  .brand-text {
+    font-size: 19px;
+  }
+
+  .brand-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .search-box {
+    display: none;
+  }
+
+  .navbar-actions {
+    margin-left: auto;
+  }
+
+  .navbar-actions .action-button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .account-button {
+    padding: 3px;
+  }
+
+  .account-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .account-container {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    margin-left: 3px;
+  }
+
+}
