@@ -1,263 +1,411 @@
 <footer class="footer">
 
-  <!-- =========================
+  <!-- ==========================================
+       NEWSLETTER
+  =========================================== -->
+
+  <section class="newsletter-section">
+
+    <div class="newsletter-container">
+
+      <div class="newsletter-content">
+
+        <div class="newsletter-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+
+            <path
+              d="M4 6H20V18H4V6Z"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M4 7L12 13L20 7"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linejoin="round"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div>
+
+          <h2>
+            Stay in the loop
+          </h2>
+
+          <p>
+            Get updates about new products, offers and exclusive deals.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <form
+        class="newsletter-form"
+        (submit)="$event.preventDefault(); subscribe()"
+      >
+
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Enter your email address"
+          required
+        />
+
+        <button
+          type="submit"
+        >
+          Subscribe
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
        MAIN FOOTER
-  ========================== -->
+  =========================================== -->
 
   <div class="footer-main">
 
-    <!-- Brand -->
+    <div class="footer-container">
 
-    <div class="footer-brand">
 
-      <a
-        routerLink="/"
-        class="footer-logo">
-        ShopEase
-      </a>
+      <!-- BRAND -->
 
-      <p>
-        Your everyday shopping destination.
-        Discover quality products, great deals,
-        and a shopping experience designed for you.
-      </p>
-
-      <!-- Social Media -->
-
-      <div class="social-links">
+      <div class="footer-brand">
 
         <a
-          href="#"
-          aria-label="Facebook">
-          f
+          routerLink="/"
+          class="footer-logo"
+        >
+
+          <span class="footer-logo-icon">
+            S
+          </span>
+
+          <span>
+            ShopEase
+          </span>
+
+        </a>
+
+
+        <p class="footer-description">
+
+          Your everyday destination for quality products,
+          great prices and a shopping experience you'll love.
+
+        </p>
+
+
+        <!-- SOCIAL -->
+
+        <div class="social-links">
+
+          <a
+            href="#"
+            aria-label="Facebook"
+            class="social-link"
+          >
+            f
+          </a>
+
+          <a
+            href="#"
+            aria-label="Instagram"
+            class="social-link"
+          >
+            ◎
+          </a>
+
+          <a
+            href="#"
+            aria-label="Twitter"
+            class="social-link"
+          >
+            𝕏
+          </a>
+
+          <a
+            href="#"
+            aria-label="YouTube"
+            class="social-link"
+          >
+            ▶
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- SHOP -->
+
+      <div class="footer-column">
+
+        <h3>
+          Shop
+        </h3>
+
+        <a routerLink="/products">
+          All Products
         </a>
 
         <a
-          href="#"
-          aria-label="Instagram">
-          ◎
+          routerLink="/products"
+          [queryParams]="{ category: 'Electronics' }"
+        >
+          Electronics
         </a>
 
         <a
-          href="#"
-          aria-label="Twitter">
-          𝕏
+          routerLink="/products"
+          [queryParams]="{ category: 'Fashion' }"
+        >
+          Fashion
         </a>
 
         <a
-          href="#"
-          aria-label="YouTube">
-          ▶
+          routerLink="/products"
+          [queryParams]="{ category: 'Home & Living' }"
+        >
+          Home & Living
         </a>
+
+        <a
+          routerLink="/products"
+          [queryParams]="{ offer: 'true' }"
+        >
+          Offers
+        </a>
+
+      </div>
+
+
+      <!-- CUSTOMER -->
+
+      <div class="footer-column">
+
+        <h3>
+          Customer Care
+        </h3>
+
+        <a routerLink="/orders">
+          My Orders
+        </a>
+
+        <a routerLink="/cart">
+          Shopping Cart
+        </a>
+
+        <a routerLink="/wishlist">
+          Wishlist
+        </a>
+
+        <a href="#">
+          Shipping & Delivery
+        </a>
+
+        <a href="#">
+          Returns & Refunds
+        </a>
+
+      </div>
+
+
+      <!-- COMPANY -->
+
+      <div class="footer-column">
+
+        <h3>
+          Company
+        </h3>
+
+        <a href="#">
+          About ShopEase
+        </a>
+
+        <a href="#">
+          Contact Us
+        </a>
+
+        <a href="#">
+          Careers
+        </a>
+
+        <a href="#">
+          Privacy Policy
+        </a>
+
+        <a href="#">
+          Terms & Conditions
+        </a>
+
+      </div>
+
+
+      <!-- CONTACT -->
+
+      <div class="footer-column contact-column">
+
+        <h3>
+          Contact
+        </h3>
+
+
+        <div class="contact-item">
+
+          <span class="contact-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <path
+                d="M12 21C16 17 19 14.2 19 10.5C19 6.9 16 4 12 4C8 4 5 6.9 5 10.5C5 14.2 8 17 12 21Z"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+
+              <circle
+                cx="12"
+                cy="10"
+                r="2"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+
+            </svg>
+
+          </span>
+
+          <span>
+            Chennai, Tamil Nadu
+          </span>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <span class="contact-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <path
+                d="M4 5L9 3L12 8L9 10C10.3 13 12 14.7 15 16L17 13L22 16L20 21C12 21 4 13 4 5Z"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+              />
+
+            </svg>
+
+          </span>
+
+          <span>
+            +91 98765 43210
+          </span>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <span class="contact-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <rect
+                x="3"
+                y="5"
+                width="18"
+                height="14"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+
+              <path
+                d="M4 7L12 13L20 7"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+
+            </svg>
+
+          </span>
+
+          <span>
+            support@shopease.com
+          </span>
+
+        </div>
 
       </div>
 
     </div>
 
-
-    <!-- Quick Links -->
-
-    <div class="footer-column">
-
-      <h3>
-        Quick Links
-      </h3>
-
-      <ul>
-
-        <li>
-          <a routerLink="/">
-            Home
-          </a>
-        </li>
-
-        <li>
-          <a routerLink="/products">
-            Products
-          </a>
-        </li>
-
-        <li>
-          <a routerLink="/wishlist">
-            Wishlist
-          </a>
-        </li>
-
-        <li>
-          <a routerLink="/cart">
-            Cart
-          </a>
-        </li>
-
-        <li>
-          <a routerLink="/orders">
-            My Orders
-          </a>
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <!-- Customer Service -->
-
-    <div class="footer-column">
-
-      <h3>
-        Customer Service
-      </h3>
-
-      <ul>
-
-        <li>
-          <a href="#">
-            Contact Us
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            Shipping Information
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            Returns & Refunds
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            FAQs
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            Help Center
-          </a>
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <!-- Company -->
-
-    <div class="footer-column">
-
-      <h3>
-        Company
-      </h3>
-
-      <ul>
-
-        <li>
-          <a href="#">
-            About Us
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            Careers
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            Privacy Policy
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            Terms & Conditions
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            Cookie Policy
-          </a>
-        </li>
-
-      </ul>
-
-    </div>
-
   </div>
 
 
-  <!-- =========================
-       NEWSLETTER
-  ========================== -->
-
-  <div class="footer-newsletter">
-
-    <div>
-
-      <span class="newsletter-label">
-        STAY CONNECTED
-      </span>
-
-      <h3>
-        Get exclusive deals & offers
-      </h3>
-
-      <p>
-        Subscribe to our newsletter and
-        stay updated with our latest products.
-      </p>
-
-    </div>
-
-
-    <div class="subscribe-form">
-
-      <input
-        type="email"
-        placeholder="Enter your email address">
-
-      <button
-        type="button"
-        (click)="subscribe()">
-
-        Subscribe
-
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <!-- =========================
-       BOTTOM FOOTER
-  ========================== -->
+  <!-- ==========================================
+       BOTTOM BAR
+  =========================================== -->
 
   <div class="footer-bottom">
 
-    <p>
-      © {{ currentYear }} ShopEase.
-      All rights reserved.
-    </p>
+    <div class="footer-bottom-container">
 
-    <div class="payment-methods">
+      <p>
+        © {{ currentYear }} ShopEase. All rights reserved.
+      </p>
 
-      <span>💳</span>
-      <span>💰</span>
-      <span>🏦</span>
-      <span>📱</span>
+
+      <div class="payment-methods">
+
+        <span>
+          VISA
+        </span>
+
+        <span>
+          Mastercard
+        </span>
+
+        <span>
+          UPI
+        </span>
+
+        <span>
+          COD
+        </span>
+
+      </div>
 
     </div>
-
-    <p>
-      Made with ❤️ for better shopping.
-    </p>
 
   </div>
 

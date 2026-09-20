@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +9,7 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
 
   searchText: string = '';
+
   cartCount: number = 2;
   wishlistCount: number = 3;
 
@@ -24,35 +26,126 @@ export class NavbarComponent {
     'Books'
   ];
 
+  constructor(private router: Router) {}
+
+  /* ==============================
+     SEARCH
+  ============================== */
+
   searchProducts(): void {
-    if (this.searchText.trim()) {
-      console.log('Searching for:', this.searchText);
+
+    const search = this.searchText.trim();
+
+    if (!search) {
+      return;
     }
+
+    this.closeAllMenus();
+
+    this.router.navigate(['/products'], {
+      queryParams: {
+        search: search
+      }
+    });
   }
 
-  toggleMobileMenu(): void {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  clearSearch(): void {
+    this.searchText = '';
   }
 
-  toggleCategories(): void {
+
+  /* ==============================
+     CATEGORIES
+  ============================== */
+
+  toggleCategories(event?: Event): void {
+
+    if (event) {
+      event.stopPropagation();
+    }
+
     this.isCategoryOpen = !this.isCategoryOpen;
     this.isAccountOpen = false;
   }
 
-  toggleAccount(): void {
+  selectCategory(category: string): void {
+
+    this.isCategoryOpen = false;
+    this.isMobileMenuOpen = false;
+
+    this.router.navigate(['/products'], {
+      queryParams: {
+        category: category
+      }
+    });
+  }
+
+
+  /* ==============================
+     ACCOUNT
+  ============================== */
+
+  toggleAccount(event?: Event): void {
+
+    if (event) {
+      event.stopPropagation();
+    }
+
     this.isAccountOpen = !this.isAccountOpen;
     this.isCategoryOpen = false;
   }
 
-  selectCategory(category: string): void {
-    console.log('Selected category:', category);
+
+  /* ==============================
+     MOBILE MENU
+  ============================== */
+
+  toggleMobileMenu(): void {
+
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+
     this.isCategoryOpen = false;
+    this.isAccountOpen = false;
   }
 
-  closeMenus(): void {
+
+  /* ==============================
+     NAVIGATION
+  ============================== */
+
+  navigateTo(path: string): void {
+
+    this.closeAllMenus();
+
+    this.router.navigate([path]);
+  }
+
+
+  /* ==============================
+     CLOSE MENUS
+  ============================== */
+
+  closeAllMenus(): void {
+
     this.isMobileMenuOpen = false;
     this.isCategoryOpen = false;
     this.isAccountOpen = false;
   }
 
+
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
+  }
+
+
+  /* ==============================
+     CLICK OUTSIDE
+  ============================== */
+
+  @HostListener('document:click')
+  closeDropdowns(): void {
+
+    this.isCategoryOpen = false;
+    this.isAccountOpen = false;
+  }
 }
